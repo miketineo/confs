@@ -1,1 +1,5 @@
-# confs
+# My Dotfiles
+
+### VIM
+
+### OhMyZsh
