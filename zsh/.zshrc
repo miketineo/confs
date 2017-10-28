@@ -5,11 +5,14 @@
 # --hidden: Search hidden files and folders
 # --follow: Follow symlinks
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*"'
+# export FZF_DEFAULT_COMMAND='ag --files --follow --glob --hidden .git -g'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export NVM_DIR="/Users/mtineo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/mtineo/.oh-my-zsh
 
@@ -17,13 +20,10 @@ export ZSH=/Users/mtineo/.oh-my-zsh
 export PATH="$HOME/.rbenv/bin:$PATH:"
 eval "$(rbenv init -)"
 
-infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
-tic $TERM.ti
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="AGNOSTER"
+ZSH_THEME="MIKE"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -67,72 +67,51 @@ ZSH_THEME="AGNOSTER"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bundler osx rake ruby)
+plugins=(git bundler osx rake ruby go)
 
 source $HOME/.zshrc.mike
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# ENV ZENDESK
-ZENDESK_CODE_DIR="$HOME/Code/zendesk"
 
-# Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
-alias src="source ~/.zshrc"
-alias src_tmux="tmux source-file ~/.tmux.conf"
-
-# Zendesk
-alias classic="cd $ZENDESK_CODE_DIR/zendesk"
-alias lotus="cd $ZENDESK_CODE_DIR/zendesk_console"
-alias voice="cd $ZENDESK_CODE_DIR/voice"
-alias atom="/Applications/Atom.app/Contents/Resources/app/atom.sh"
-alias vim="nvim"
-
-# Hosts
-alias dba3="ssh -t admin1.dub1.zdsys.com mtineo@dbadmin1.dub1.zdsys.com"
-
-# BEGIN DOCKER-IMAGES
-source /Users/mtineo/Code/zendesk/docker-images/dockmaster/zdi.sh
-# END DOCKER-IMAGES
- 
-
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-
-# Functions
-#
-make_me_admin () {
-  zdi zendesk_monitor run "rails runner \"MonitorUser.find_by_email('$USER@zendesk.com').tap {|me| me.add_roles('admin') unless me.is_admin?} && puts('ok')\" "
-}
+# Alias
 alias ngrok="$HOME/ngrok"
 alias vimsettings="vim ~/.config/nvim/config/misc.vimrc"
 alias composer=$HOME/composer
 alias last_tag="git log --pretty=format:'%d' | grep 'tag:' | head -n 1"
 export GOPATH=~/Code/go
 export PATH=/Users/mtineo/.avn/bin:/Users/mtineo/Code/zendesk/docker-images/dockmaster/bin:/Users/mtineo/.rbenv/shims:/Users/mtineo/.rbenv/bin:/Users/mtineo/.avn/bin:/Users/mtineo/Code/zendesk/docker-images/dockmaster/bin:/Users/mtineo/.rbenv/shims:/Users/mtineo/.rbenv/bin:/Users/mtineo/.avn/bin:/Users/mtineo/Code/zendesk/docker-images/dockmaster/bin:/Users/mtineo/.rbenv/shims:/Users/mtineo/.rbenv/bin:/Users/mtineo/.avn/bin:/Users/mtineo/Code/zendesk/docker-images/dockmaster/bin:/Users/mtineo/.rbenv/shims:/Users/mtineo/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/mtineo/.avn/bin:/Users/mtineo/Code/zendesk/docker-images/dockmaster/bin:/Users/mtineo/.rbenv/shims:/Users/mtineo/.rbenv/bin:/Users/mtineo/.fzf/bin:::::/usr/local/opt/go/libexec/bin
+export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+# BEGIN DOCKER-IMAGES
+source /Users/mtineo/Code/zendesk/docker-images/dockmaster/zdi.sh
+# END DOCKER-IMAGES
+
+export PATH="$HOME/.yarn/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
