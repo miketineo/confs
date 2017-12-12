@@ -22,7 +22,6 @@ Plug 'jamessan/vim-gnupg'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
-Plug 'w0rp/ale'
 
 
 " Initialize plugin system

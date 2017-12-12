@@ -80,6 +80,7 @@ autocmd FileType ruby compiler ruby
 
 " Go lang
 let g:go_term_mode = "split"
+let g:go_fmt_command = "goimports"
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 

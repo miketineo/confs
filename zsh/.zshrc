@@ -109,9 +109,14 @@ alias last_tag="git log --pretty=format:'%d' | grep 'tag:' | head -n 1"
 export GOPATH=~/Code/go
 export PATH=/Users/mtineo/.avn/bin:/Users/mtineo/Code/zendesk/docker-images/dockmaster/bin:/Users/mtineo/.rbenv/shims:/Users/mtineo/.rbenv/bin:/Users/mtineo/.avn/bin:/Users/mtineo/Code/zendesk/docker-images/dockmaster/bin:/Users/mtineo/.rbenv/shims:/Users/mtineo/.rbenv/bin:/Users/mtineo/.avn/bin:/Users/mtineo/Code/zendesk/docker-images/dockmaster/bin:/Users/mtineo/.rbenv/shims:/Users/mtineo/.rbenv/bin:/Users/mtineo/.avn/bin:/Users/mtineo/Code/zendesk/docker-images/dockmaster/bin:/Users/mtineo/.rbenv/shims:/Users/mtineo/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/mtineo/.avn/bin:/Users/mtineo/Code/zendesk/docker-images/dockmaster/bin:/Users/mtineo/.rbenv/shims:/Users/mtineo/.rbenv/bin:/Users/mtineo/.fzf/bin:::::/usr/local/opt/go/libexec/bin
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+export PATH=$PATH:$GOPATH/bin
+export GOENV_ROOT=$HOME/.goenv
+export PATH=$GOENV_ROOT/bin:$PATH
+eval "$(goenv init -)"
 # BEGIN DOCKER-IMAGES
 source /Users/mtineo/Code/zendesk/docker-images/dockmaster/zdi.sh
 # END DOCKER-IMAGES
 
 export PATH="$HOME/.yarn/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/sbin:$PATH"
