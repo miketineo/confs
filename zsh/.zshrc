@@ -23,7 +23,7 @@ eval "$(rbenv init -)"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="MIKE"
+ZSH_THEME="REFINED"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -113,10 +113,15 @@ export PATH=$PATH:$GOPATH/bin
 export GOENV_ROOT=$HOME/.goenv
 export PATH=$GOENV_ROOT/bin:$PATH
 eval "$(goenv init -)"
-# BEGIN DOCKER-IMAGES
-source /Users/mtineo/Code/zendesk/docker-images/dockmaster/zdi.sh
-# END DOCKER-IMAGES
 
 export PATH="$HOME/.yarn/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/usr/local/sbin:$PATH"
+# BEGIN DOCKER-IMAGES
+source /Users/mtineo/Code/zendesk/docker-images/dockmaster/zdi.sh
+# END DOCKER-IMAGES
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

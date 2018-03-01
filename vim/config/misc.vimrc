@@ -36,6 +36,10 @@ set smarttab
 set tabpagemax=50
 set ttyfast
 
+" W to w
+cmap W w
+cmap Q q
+
 " Nerd Commenter
 filetype plugin on
 
@@ -61,6 +65,7 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 nnoremap <c-p> :FZF<cr>
+nnoremap <leader> :Find
 
 filetype plugin indent on
 autocmd Filetype ruby setlocal tabstop=2 shiftwidth=2
@@ -120,5 +125,15 @@ highlight ColorColumn ctermbg=magenta
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 
-" ABBS 
+" ABBS
 abbr rbb require "byebug"; byebug<esc>
+
+" Hardmode
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" Ale
+let g:ale_linters = {
+      \  'javascript': ['eslint'],
+      \  'ruby': ['rubocop']
+\}

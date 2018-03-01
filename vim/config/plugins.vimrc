@@ -5,6 +5,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
 Plug 'flazz/vim-colorschemes'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -22,6 +23,9 @@ Plug 'jamessan/vim-gnupg'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
+Plug 'wikitopian/hardmode'
+Plug 'w0rp/ale'
+Plug 'bling/vim-airline'
 
 
 " Initialize plugin system
