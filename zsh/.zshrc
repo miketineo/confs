@@ -19,6 +19,7 @@ export ZSH=/Users/mtineo/.oh-my-zsh
 #Silly stuff
 export PATH="$HOME/.rbenv/bin:$PATH:"
 eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -117,11 +118,11 @@ eval "$(goenv init -)"
 export PATH="$HOME/.yarn/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/usr/local/sbin:$PATH"
-# BEGIN DOCKER-IMAGES
-source /Users/mtineo/Code/zendesk/docker-images/dockmaster/zdi.sh
-# END DOCKER-IMAGES
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# BEGIN DOCKER-IMAGES
+source /Users/mtineo/Code/zendesk/docker-images/dockmaster/zdi.sh
+# END DOCKER-IMAGES
