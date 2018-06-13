@@ -26,8 +26,9 @@ Plug 'fatih/vim-go'
 Plug 'wikitopian/hardmode'
 Plug 'w0rp/ale'
 Plug 'bling/vim-airline'
+Plug 'janko-m/vim-test'
+" end of plugins marker
 
 
 " Initialize plugin system
 call plug#end()
-

@@ -1,3 +1,6 @@
+"
+" My vimrc
+"
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
@@ -65,7 +68,13 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 nnoremap <c-p> :FZF<cr>
-nnoremap <leader> :Find
+nnoremap <leader>f :Find<space>
+nnoremap <leader>w :FixWhitespace<cr>
+nnoremap <leader>r :!ruby %<cr>
+
+" Insert real tabs with shift + tab
+inoremap <S-Tab> <C-V><Tab>
+
 
 filetype plugin indent on
 autocmd Filetype ruby setlocal tabstop=2 shiftwidth=2
@@ -109,7 +118,7 @@ let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit',
-      \ 'enter': 'tab split', }
+      \ 'enter': 'tab drop', }
 
 " Find current word
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
@@ -133,7 +142,9 @@ autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " Ale
+let g:airline#extensions#ale#enabled = 1
 let g:ale_linters = {
       \  'javascript': ['eslint'],
-      \  'ruby': ['rubocop']
+      \  'ruby': ['rubocop'],
+      \  'docker': ['hadolint'],
 \}

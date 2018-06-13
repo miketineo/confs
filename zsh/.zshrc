@@ -6,7 +6,7 @@
 # --follow: Follow symlinks
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*"'
-# export FZF_DEFAULT_COMMAND='ag --files --follow --glob --hidden .git -g'
+# export FZF_DEFAULT_COMMAND='rg --files --follow --glob --hidden .git -g'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export NVM_DIR="/Users/mtineo/.nvm"
@@ -24,7 +24,7 @@ eval "$(pyenv init -)"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="REFINED"
+ZSH_THEME="HONUKAI"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -92,6 +92,8 @@ fi
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+ssh-add -K $SSH_KEY_PATH &> /dev/null
+ssh-add -A &> /dev/null
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
