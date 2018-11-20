@@ -70,7 +70,15 @@ let g:NERDTrimTrailingWhitespace = 1
 nnoremap <c-p> :FZF<cr>
 nnoremap <leader>f :Find<space>
 nnoremap <leader>w :FixWhitespace<cr>
-nnoremap <leader>r :!ruby %<cr>
+autocmd FileType ruby
+  nnoremap <leader>r :!ruby %<cr>
+  nnoremap <leader>t :!zdi zendesk -d shell -- testrbl %<cr>
+
+autocmd FileType c
+  nnoremap <leader>r :!gcc % && ./a.out<cr>
+
+autocmd FileType python
+  nnoremap <leader>r :!python %<cr>
 
 " Insert real tabs with shift + tab
 inoremap <S-Tab> <C-V><Tab>
